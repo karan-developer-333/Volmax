@@ -28,9 +28,9 @@ export default function Navbar() {
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 px-6 py-6 md:py-8 flex justify-between items-center transition-all duration-500 ${
-          scrolled ? 'bg-bg/80 backdrop-blur-lg py-4 md:py-5 border-b border-white/5' : ''
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 w-full z-50 px-6 py-6 md:py-8 flex justify-between items-center transition-all duration-700 ${
+          scrolled ? 'bg-bg/40 backdrop-blur-2xl py-4 md:py-5 border-b border-white/10 shadow-2xl' : ''
         }`}
       >
         <div className="text-2xl font-display font-bold tracking-tighter">

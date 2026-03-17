@@ -44,22 +44,22 @@ export default function Policy() {
           <p className="text-text-muted uppercase tracking-widest text-xs">Trust and transparency in every project</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {policies.map((p, i) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center p-6"
+              transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center group"
             >
-              <div className="w-16 h-16 rounded-2xl glass mx-auto flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
-                <p.icon className="w-8 h-8" />
+              <div className="w-20 h-20 rounded-3xl glass mx-auto flex items-center justify-center text-accent mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 border border-white/5">
+                <p.icon className="w-10 h-10" />
               </div>
-              <h3 className="text-lg font-display font-bold mb-1">{p.title}</h3>
-              <p className="text-[10px] text-accent uppercase tracking-widest font-bold mb-4">{p.hindi}</p>
-              <p className="text-sm text-text-muted leading-relaxed">
+              <h3 className="text-xl font-display font-bold mb-2">{p.title}</h3>
+              <p className="text-[10px] text-accent uppercase tracking-[0.3em] font-bold mb-5">{p.hindi}</p>
+              <p className="text-sm text-text-muted leading-relaxed group-hover:text-current transition-colors duration-500">
                 {p.desc}
               </p>
             </motion.div>

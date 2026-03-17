@@ -26,6 +26,9 @@
   background-color: var(--bg);
   color: white;
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 :root.light {
@@ -39,8 +42,16 @@
 
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(120px);
+  backdrop-filter: blur(40px);
   border: 1px solid var(--glass-border);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 .text-glow {

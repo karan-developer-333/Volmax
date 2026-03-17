@@ -6,50 +6,64 @@ export default function About() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 tracking-tighter">
+            <h2 className="text-5xl md:text-7xl font-display font-bold mb-10 tracking-tighter leading-[0.9]">
               BORN IN <span className="text-accent">PALI</span>,<br />
               DRIVEN BY <span className="text-glow">VISION</span>
             </h2>
-            <div className="space-y-6 text-text-muted leading-relaxed text-lg">
+            <div className="space-y-8 text-text-muted leading-relaxed text-xl max-w-lg">
               <p>
-                Both founders of Volmax Web live in Pali, Rajasthan. We work together to help local shops, businesses, and companies build their professional websites and grow their presence on the internet.
+                Rooted in the heart of Rajasthan, we bridge the gap between traditional business and the digital future.
               </p>
-              <p className="italic opacity-60">
-                Volmax Web के दोनों ओनर्स पाली, राजस्थान में रहते हैं। वे मिलकर स्थानीय दुकानों, व्यापारियों और कंपनियों को प्रोफेशनल वेबसाइट बनाकर इंटरनेट पर उनकी पहचान बनाने में मदद करते हैं।
+              <p className="italic opacity-60 text-lg">
+                पाली, राजस्थान की मिट्टी से जुड़े हम, पारंपरिक व्यापार और डिजिटल भविष्य के बीच की दूरी को मिटा रहे हैं।
               </p>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative group"
           >
-            <div className="aspect-video rounded-3xl glass overflow-hidden relative">
+            <div className="aspect-[4/3] rounded-[40px] glass overflow-hidden relative border border-white/10 shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
                 alt="Modern Workspace"
-                className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000 ease-out"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent mix-blend-overlay" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-2">The Founders</p>
-                  <p className="text-2xl font-display font-bold">Lakshit & Vikram</p>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-[10px] uppercase tracking-[0.5em] text-accent font-bold mb-3"
+                  >
+                    The Founders
+                  </motion.p>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    className="text-4xl font-display font-bold tracking-tighter"
+                  >
+                    Lakshit & Karan
+                  </motion.p>
                 </div>
               </div>
             </div>
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-t border-r border-accent/30 rounded-tr-3xl" />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b border-l border-accent/30 rounded-bl-3xl" />
+            <div className="absolute -top-6 -right-6 w-32 h-32 border-t border-r border-accent/20 rounded-tr-[40px]" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 border-b border-l border-accent/20 rounded-bl-[40px]" />
           </motion.div>
         </div>
       </div>

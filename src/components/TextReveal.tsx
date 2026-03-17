@@ -7,53 +7,53 @@ interface TextRevealProps {
 }
 
 export default function TextReveal({ text, className, delay = 0 }: TextRevealProps) {
-  const letters = Array.from(text);
+  const words = text.split(' ');
 
   const container = {
     hidden: { opacity: 0 },
-    visible: (i: number = 1) => ({
+    visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.03, delayChildren: delay * i },
-    }),
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: delay,
+      },
+    },
   };
 
   const child = {
     visible: {
-      opacity: 1,
       y: 0,
+      rotateX: 0,
+      opacity: 1,
       transition: {
-        type: 'spring',
-        damping: 12,
-        stiffness: 100,
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
     hidden: {
+      y: 100,
+      rotateX: 45,
       opacity: 0,
-      y: 20,
-      transition: {
-        type: 'spring',
-        damping: 12,
-        stiffness: 100,
-      },
     },
   };
 
   return (
     <motion.span
-      style={{ display: 'inline-block', overflow: 'hidden' }}
       variants={container}
       initial="hidden"
-      animate="visible"
-      className={className}
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={`inline-flex flex-wrap gap-x-[0.2em] overflow-hidden py-[0.1em] ${className}`}
     >
-      {letters.map((letter, index) => (
-        <motion.span
-          variants={child}
-          key={index}
-          style={{ display: 'inline-block' }}
-        >
-          {letter === ' ' ? '\u00A0' : letter}
-        </motion.span>
+      {words.map((word, index) => (
+        <span key={index} className="inline-block overflow-hidden">
+          <motion.span
+            variants={child}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        </span>
       ))}
     </motion.span>
   );

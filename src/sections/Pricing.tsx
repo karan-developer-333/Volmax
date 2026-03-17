@@ -47,33 +47,35 @@ export default function Pricing() {
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass p-8 rounded-3xl relative group hover:border-accent/30 transition-colors"
+              transition={{ duration: 1, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="glass p-10 rounded-[40px] relative group hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-700 border border-white/5 hover:border-accent/20"
             >
-              <div className="mb-8">
-                <h3 className="text-xl font-display font-bold mb-1">{plan.name}</h3>
-                <p className="text-xs text-accent uppercase tracking-widest font-bold mb-4">{plan.hindi}</p>
+              <div className="mb-10">
+                <h3 className="text-2xl font-display font-bold mb-2">{plan.name}</h3>
+                <p className="text-[10px] text-accent uppercase tracking-[0.3em] font-bold mb-6">{plan.hindi}</p>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-display font-bold">₹{plan.price}</span>
-                  <span className="text-text-muted text-sm">/one-time</span>
+                  <span className="text-5xl font-display font-bold tracking-tighter">₹{plan.price}</span>
+                  <span className="text-text-muted text-xs uppercase tracking-widest ml-2">one-time</span>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-5 mb-10">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-text-muted">
-                    <Check className="w-4 h-4 text-accent" />
+                  <li key={feature} className="flex items-center gap-4 text-sm text-text-muted group-hover:text-current transition-colors">
+                    <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center">
+                      <Check className="w-3 h-3 text-accent" />
+                    </div>
                     {feature}
                   </li>
                 ))}
               </ul>
 
               <Magnetic>
-                <button className="w-full py-4 rounded-xl border border-white/10 group-hover:bg-accent group-hover:border-accent transition-all duration-300 font-bold uppercase tracking-widest text-xs">
-                  Choose Plan
+                <button className="w-full py-5 rounded-2xl border border-white/10 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-500 font-bold uppercase tracking-[0.2em] text-[10px]">
+                  Get Started
                 </button>
               </Magnetic>
             </motion.div>

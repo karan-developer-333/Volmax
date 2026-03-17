@@ -31,18 +31,35 @@ export default function CustomCursor() {
   }, [mouseX, mouseY]);
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[999] mix-blend-difference hidden md:block"
-      style={{
-        x: mouseX,
-        y: mouseY,
-        translateX: '-50%',
-        translateY: '-50%',
-        backgroundColor: 'white',
-      }}
-      animate={{
-        scale: isHovering ? 2.5 : 1,
-      }}
-    />
+    <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[999] hidden md:block">
+      <motion.div
+        className="w-4 h-4 rounded-full bg-accent mix-blend-difference"
+        style={{
+          x: mouseX,
+          y: mouseY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          scale: isHovering ? 4 : 1,
+          opacity: isHovering ? 0.5 : 1,
+        }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.div
+        className="absolute top-0 left-0 w-12 h-12 rounded-full border border-accent/30"
+        style={{
+          x: mouseX,
+          y: mouseY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          scale: isHovering ? 1.5 : 1,
+          opacity: isHovering ? 0 : 1,
+        }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      />
+    </div>
   );
 }
