@@ -28,18 +28,7 @@ export default function Hero() {
       });
     }
 
-    if (imageRef.current) {
-      gsap.to(imageRef.current, {
-        y: -100,
-        rotate: 5,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1,
-        },
-      });
-    }
+    
   }, []);
 
   return (
@@ -136,7 +125,7 @@ export default function Hero() {
           >
             <div ref={imageRef} className="w-full h-full rounded-[40px] glass relative overflow-hidden group shadow-2xl border border-white/10">
                <img 
-                 src="https://ibb.co/n873VfK8" 
+                 src="https://i.ibb.co/S7tQ10Z7/hero.jpg" 
                  alt="Volmax Founders"
                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
                  referrerPolicy="no-referrer"
