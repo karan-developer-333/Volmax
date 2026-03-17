@@ -136,7 +136,7 @@ export default function Hero() {
           >
             <div ref={imageRef} className="w-full h-full rounded-[40px] glass relative overflow-hidden group shadow-2xl border border-white/10">
                <img 
-                 src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000" 
+                 src="/hero.jpg" 
                  alt="Volmax Founders"
                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
                  referrerPolicy="no-referrer"
